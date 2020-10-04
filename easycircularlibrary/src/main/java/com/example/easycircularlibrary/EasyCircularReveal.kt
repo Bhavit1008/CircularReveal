@@ -148,6 +148,7 @@ fun onActivityCreate(intent: Intent) {
     if (!viewTreeObserver.isAlive) return
 
     viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun onGlobalLayout() {
             revealActivity(duration)
             rootLayout.viewTreeObserver.removeOnGlobalLayoutListener(this)
@@ -160,6 +161,7 @@ fun onActivityCreate(intent: Intent) {
  *
  * @param duration Long
  */
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 protected fun revealActivity(duration: Long) {
     val maxRadius = max(rootLayout.width, rootLayout.height) * 1.1f
 
